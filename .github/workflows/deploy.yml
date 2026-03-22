@@ -34,16 +34,16 @@ jobs:
         run: npx playwright install chromium
 
       - name: Build Día 1
-        run: npx slidev build slides-dia1.md --out dist/dia1 --base /${{ github.event.repository.name }}/dia1/
+        run: npx slidev build slides-dia1.md --out dist/dia1 --base ./
 
       - name: Build Día 2
-        run: npx slidev build slides-dia2.md --out dist/dia2 --base /${{ github.event.repository.name }}/dia2/
+        run: npx slidev build slides-dia2.md --out dist/dia2 --base ./
 
       - name: Build Día 3
-        run: npx slidev build slides-dia3.md --out dist/dia3 --base /${{ github.event.repository.name }}/dia3/
+        run: npx slidev build slides-dia3.md --out dist/dia3 --base ./
 
       - name: Build Día 4
-        run: npx slidev build slides-dia4.md --out dist/dia4 --base /${{ github.event.repository.name }}/dia4/
+        run: npx slidev build slides-dia4.md --out dist/dia4 --base ./
 
       - name: Create root index and nojekyll
         run: |
