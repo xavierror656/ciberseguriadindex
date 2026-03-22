@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ciberseguridad para la Industria — INDEX Ciudad Juárez</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Calibri, Trebuchet MS, sans-serif;
+      background: #f5fafa;
+      color: #44546A;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #00534C;
+      border-bottom: 3px solid #40C6BD;
+      padding-bottom: 0.4em;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: #00879B;
+      font-size: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #B1DFDC;
+      border-top: 4px solid #00879B;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 20px rgba(0,135,155,0.15);
+      transform: translateY(-2px);
+    }
+    .card .day {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #40C6BD;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .card h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #00534C;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.85rem;
+      color: #44546A;
+      line-height: 1.5;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.75rem;
+      color: #A5A5A5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ciberseguridad para la Industria</h1>
+    <p>Skilling Center Tecmilenio &mdash; INDEX Ciudad Juárez &mdash; Marzo 2026</p>
+  </header>
+
+  <div class="grid">
+    <a class="card" href="./dia1/">
+      <div class="day">Día 1 &mdash; 24 Mar</div>
+      <h2>Amenazas con IA &amp; Ingeniería Social</h2>
+      <p>Deepfakes, CEO fraud, phishing generativo, MITRE ATT&CK.</p>
+    </a>
+    <a class="card" href="./dia2/">
+      <div class="day">Día 2 &mdash; 25 Mar</div>
+      <h2>Identidad &amp; Zero Trust</h2>
+      <p>MFA, PAM, Zero Trust, gestión de credenciales.</p>
+    </a>
+    <a class="card" href="./dia3/">
+      <div class="day">Día 3 &mdash; 26 Mar</div>
+      <h2>Datos, Nube &amp; Trabajo Híbrido</h2>
+      <p>OneDrive, BYOD, VPN, MDM, LFPDPPP.</p>
+    </a>
+    <a class="card" href="./dia4/">
+      <div class="day">Día 4 &mdash; 27 Mar</div>
+      <h2>Respuesta a Incidentes &amp; Ransomware</h2>
+      <p>NIST SP 800-61, árbol de decisión, higiene digital.</p>
+    </a>
+  </div>
+
+  <footer>
+    &copy; 2026 Skilling Center Tecmilenio &mdash; INDEX Ciudad Juárez. Todos los derechos reservados.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "name": "ciberseguridad-index-juarez",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dia1": "slidev slides-dia1.md",
+    "dia2": "slidev slides-dia2.md",
+    "dia3": "slidev slides-dia3.md",
+    "dia4": "slidev slides-dia4.md",
+    "build:dia1": "slidev build slides-dia1.md --out dist/dia1",
+    "build:dia2": "slidev build slides-dia2.md --out dist/dia2",
+    "build:dia3": "slidev build slides-dia3.md --out dist/dia3",
+    "build:dia4": "slidev build slides-dia4.md --out dist/dia4",
+    "export:dia1": "slidev export slides-dia1.md --output exports/dia1.pdf",
+    "export:dia2": "slidev export slides-dia2.md --output exports/dia2.pdf",
+    "export:dia3": "slidev export slides-dia3.md --output exports/dia3.pdf",
+    "export:dia4": "slidev export slides-dia4.md --output exports/dia4.pdf"
+  },
+  "dependencies": {
+    "@slidev/cli": "^51.0.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "^0.25.0",
+    "slidev-addon-qrcode": "^1.0.2",
+    "slidev-addon-rabbit": "^0.4.0",
+    "slidev-addon-rough-mermaid": "^0.0.5",
+    "slidev-addon-window-mockup": "^0.3.0",
+    "slidev-component-poll": "^3.0.0",
+    "slidev-theme-kirei": "^0.0.6"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.49.0"
+  },
+  "packageManager": "npm@latest"
+}
