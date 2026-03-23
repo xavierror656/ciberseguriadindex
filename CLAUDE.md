@@ -192,6 +192,35 @@ All images are in `public/images/`:
 - Each lab must include a measurable expected outcome
 - MITRE ATT&CK technique IDs (e.g., T1566.001) should be cited when describing attack scenarios
 
+## Deployment
+
+### GitHub Actions — GitHub Pages
+
+Workflow: `.github/workflows/deploy.yml` — triggers on push to `main`.
+
+**Build commands use `--base ./`** (relative paths) so assets work on GitHub Pages subdirectories, custom domains, and local serving alike. Never use absolute base (`/` or `/<repo>/`) for these builds.
+
+```bash
+npx slidev build slides-dia1.md --out dist/dia1 --base ./
+```
+
+The workflow builds all 4 days into `dist/dia1/`–`dist/dia4/`, copies `index.html` to `dist/`, and adds `dist/.nojekyll` before uploading to Pages.
+
+### Landing page
+
+`index.html` at project root — Tecmilenio-branded hub linking to `dia1/`–`dia4/`. Uses relative links (no leading `/`). Copied to `dist/` by the workflow.
+
+### Local build test
+
+```bash
+npm run build:dia1        # outputs to dist/dia1 with --base ./
+npx serve dist/dia1       # verify assets load at localhost:3000
+```
+
+### Ignored files
+
+`.gitignore` covers: `node_modules/`, `dist/`, `exports/`, `.slidev/`, `.vite/`, `.env*`, OS/editor artifacts.
+
 ## Pedagogical Pattern (applied to all days)
 
 Every day includes these learning design elements:
