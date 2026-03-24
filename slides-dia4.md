@@ -11,18 +11,32 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
-colorSchema: dark
-background: /images/cover-dia4.jpg
+colorSchema: light
+layout: cover
+background: /images/juarez-skyline.jpg
+addons:
+  - slidev-addon-qrcode
+  - slidev-component-poll
+  - slidev-addon-rabbit
+  - window-mockup
+  - slidev-addon-rough-mermaid
+rabbit:
+  slideNum: true
+defaults:
+  layout: default
 ---
 
-# Ciberseguridad para la Industria Manufacturera
+<img src="/images/tecmilenio-logo.png" class="absolute top-6 left-8 h-10 z-10" />
 
-## Día 4 — Respuesta a Incidentes y Ransomware
-
-**INDEX Ciudad Juárez · 27 de marzo de 2026**
-
-<div class="pt-6 text-gray-400">
-  4 horas · Sesión 4 de 4 · Proyecto Final
+<div class="absolute right-0 top-0 bottom-0 w-[42%] bg-[#00879B]/92 flex flex-col justify-center pl-8 pr-6 z-10 overflow-hidden">
+  <h1 class="text-white text-2xl font-light leading-tight mb-3 pb-3" style="border-bottom: 2px solid #40C6BD; border-color: #40C6BD !important;">
+    Ciberseguridad<br/>para la Industria<br/>Manufacturera
+  </h1>
+  <h2 class="text-[#B1DFDC] text-base font-light mb-5">
+    Día 4 — Respuesta a Incidentes y Ransomware
+  </h2>
+  <p class="text-white/90 text-sm font-semibold">INDEX Ciudad Juárez</p>
+  <p class="text-white/60 text-xs mt-1">27 de marzo de 2026 · Sesión 4 de 4</p>
 </div>
 
 ---
@@ -35,6 +49,18 @@ layout: quote
 
 <!--
 El objetivo de hoy no es evitar el ataque. Es sobrevivir a él.
+-->
+
+---
+layout: center
+---
+
+# Antes de empezar...
+
+<Poll question="Si mañana tu planta sufre un ransomware, ¿tienes backups verificados listos para restaurar?" :answers="['Sí, backups offline probados recientemente', 'Tenemos backups pero no los hemos probado', 'Tenemos algo, pero no estamos seguros', 'No tenemos backups confiables']" />
+
+<!--
+Dejar 60 segundos para que voten. Esta respuesta define si la planta sobrevive a un ransomware.
 -->
 
 ---
@@ -66,6 +92,57 @@ layout: two-cols
 | 🔬 Lab 7 | Simulación de ransomware |
 | 🎭 Lab 8 | Análisis de logs (Blue Team Labs) |
 | 🏆 Proyecto | Simulación completa final |
+
+---
+layout: center
+---
+
+# ¿Cómo está tu planta hoy?
+
+<div class="grid grid-cols-3 gap-4 mt-4 text-center text-sm">
+
+<div class="border-2 border-red-300 rounded-xl p-4 bg-red-50">
+  <div class="text-3xl mb-2">🌡️</div>
+  <div class="text-red-700 font-bold text-base mb-2">Riesgo Alto</div>
+  <div class="text-red-600 text-xs space-y-1">
+    <div>Sin Plan de Respuesta a Incidentes</div>
+    <div>Sin backups verificados</div>
+    <div>Sin SIEM ni monitoreo de logs</div>
+    <div>Sin roles definidos de respuesta</div>
+  </div>
+</div>
+
+<div class="border-2 border-amber-300 rounded-xl p-4 bg-amber-50">
+  <div class="text-3xl mb-2">⚠️</div>
+  <div class="text-amber-700 font-bold text-base mb-2">Riesgo Medio</div>
+  <div class="text-amber-600 text-xs space-y-1">
+    <div>Plan documentado pero no practicado</div>
+    <div>Backups sin prueba de restauración</div>
+    <div>Logs guardados menos de 30 días</div>
+    <div>Roles informales de respuesta</div>
+  </div>
+</div>
+
+<div class="border-2 border-green-300 rounded-xl p-4 bg-green-50">
+  <div class="text-3xl mb-2">✅</div>
+  <div class="text-green-700 font-bold text-base mb-2">Riesgo Bajo</div>
+  <div class="text-green-600 text-xs space-y-1">
+    <div>IRP documentado y ejercitado</div>
+    <div>Backups offline probados mensualmente</div>
+    <div>SIEM con logs 90+ días</div>
+    <div>Equipo de IR con contactos 24/7</div>
+  </div>
+</div>
+
+</div>
+
+<div class="tip-teal text-sm mt-4 text-center">
+  <carbon-information class="text-teal-700" /> Al final del día, este termómetro debería verse diferente. Guarda mentalmente en qué columna está tu planta <strong>hoy</strong>.
+</div>
+
+<!--
+Pedir que levanten la mano: ¿quién está en rojo? ¿amarillo? ¿verde?
+-->
 
 ---
 layout: section
@@ -273,6 +350,50 @@ MTTR = Hora de contención
 - Correo: < 4h
 
 ---
+
+# ✅ Cierre — Bloque 1
+
+<div class="grid grid-cols-3 gap-5 mt-4">
+
+<div class="tip-teal p-4 rounded-xl text-center">
+  <div class="text-2xl mb-2">📋</div>
+  <div class="text-[#00534C] font-bold mb-1">Preparación es todo</div>
+  <div class="text-xs text-gray-600">El IRP, los roles y los backups deben existir ANTES del incidente. Improvisar en una crisis cuesta $340,000 USD.</div>
+</div>
+
+<div class="tip-warn p-4 rounded-xl text-center">
+  <div class="text-2xl mb-2">⏱️</div>
+  <div class="text-[#7C3912] font-bold mb-1">Cada minuto importa</div>
+  <div class="text-xs text-gray-600">MTTD &lt; 24h · MTTR &lt; 4h · RTO &lt; 8h. Sin SIEM, el atacante promedia 200 días sin ser detectado.</div>
+</div>
+
+<div class="tip-danger p-4 rounded-xl text-center">
+  <div class="text-2xl mb-2">🏭</div>
+  <div class="text-red-700 font-bold mb-1">Decisión de producción</div>
+  <div class="text-xs text-gray-600">¿Parar o no parar la línea? Gerente de Planta + IT juntos. Un PLC comprometido es un riesgo de seguridad física.</div>
+</div>
+
+</div>
+
+<v-click>
+
+<div class="mt-4 p-3 bg-[#00534C] text-white rounded-xl text-sm text-center">
+  <strong>Pregunta para llevar al lab:</strong> Si hoy llega una nota de rescate, ¿cuáles son tus primeras 3 acciones en los próximos 10 minutos?
+</div>
+
+</v-click>
+
+---
+layout: center
+---
+
+<Poll question="Antes del lab: si recibes una nota de ransomware ahora mismo, ¿sabes exactamente qué hacer?" :answers="['Sí, tenemos protocolo y lo he practicado', 'Sé los pasos generales pero no tengo protocolo formal', 'Tengo idea pero no estoy seguro', 'No sabría por dónde empezar']" />
+
+<!--
+Guardar estos resultados. Al final del lab verificar si cambió la percepción.
+-->
+
+---
 layout: section
 ---
 
@@ -414,7 +535,38 @@ background: /images/log-analysis.jpg
 </v-click>
 
 ---
+layout: center
+---
+
+# ⏸️ Pausa de 5 minutos — Reflexión activa
+
+<div class="grid grid-cols-2 gap-6 mt-4 max-w-2xl mx-auto">
+
+<div class="tip-teal p-5 rounded-xl text-center">
+  <div class="text-3xl mb-3">✍️</div>
+  <div class="text-[#00534C] font-bold mb-2">Escribe una cosa</div>
+  <div class="text-sm text-gray-600">¿Qué cambiarías en tu planta <strong>esta semana</strong> después de los labs de hoy?</div>
+</div>
+
+<div class="tip-warn p-5 rounded-xl text-center">
+  <div class="text-3xl mb-3">💬</div>
+  <div class="text-[#7C3912] font-bold mb-2">Comparte con un compañero</div>
+  <div class="text-sm text-gray-600">60 segundos cada uno. Sin filtros — cualquier idea cuenta, por pequeña que sea.</div>
+</div>
+
+</div>
+
+<div class="mt-5 text-center text-sm text-gray-500">
+  <carbon-time class="text-gray-500" /> Regresamos en <strong>5 minutos</strong> para el proyecto final
+</div>
+
+<!--
+Usar este tiempo genuinamente. No avanzar el material.
+-->
+
+---
 layout: section
+background: /images/tecmilenio-teamwork.jpeg
 ---
 
 # Proyecto Final del Curso
@@ -559,6 +711,47 @@ El costo de una demanda por defecto supera el costo de detener producción 4 hor
 
 ---
 
+# 🖼️ Gallery Walk — Comparte tu análisis
+
+<div class="grid grid-cols-2 gap-6 mt-3">
+
+<div>
+
+**Instrucciones (15 minutos):**
+
+<v-clicks>
+
+1. 📌 **Pega** tu matriz MITRE + plan de respuesta en la pared (o compártela en pantalla)
+2. 👀 **Visita** los análisis de los demás equipos — 2 min por equipo
+3. ✅ **Agrega un post-it verde** con una táctica MITRE o control que agregarías
+4. ❓ **Agrega un post-it amarillo** con una decisión que cuestionarías
+5. 🎤 **Cada equipo** defiende su plan en 2 minutos
+
+</v-clicks>
+
+</div>
+
+<div class="flex flex-col gap-3">
+
+<div class="tip-teal text-sm">
+  <carbon-checkmark class="text-teal-700" /> <strong>Meta:</strong> Que cada planta salga con un borrador real de su Plan de Respuesta a Incidentes
+</div>
+
+<div class="tip-warn text-sm">
+  <carbon-warning-alt-filled class="text-orange-600" /> <strong>Criterio de éxito:</strong> El plan bloquea el ataque a Aztec en la Etapa 1 — ¿cómo?
+</div>
+
+<div class="border border-[#B1DFDC] rounded-lg p-3 text-xs bg-[#f0fafa]">
+  <div class="font-bold text-[#00534C] mb-1">Rúbrica rápida</div>
+  <div class="text-gray-600">✅ Identifica las tácticas MITRE de cada etapa<br/>✅ Define los primeros 10 minutos de respuesta<br/>✅ Especifica cuándo parar producción<br/>✅ Incluye a quién notificar y en qué orden</div>
+</div>
+
+</div>
+
+</div>
+
+---
+
 # Evaluación final del curso
 
 | Criterio | Peso |
@@ -577,7 +770,7 @@ El costo de una demanda por defecto supera el costo de detener producción 4 hor
 |-----------|-----|---------|
 | TryHackMe | tryhackme.com | Ruta: SOC Level 1 |
 | Blue Team Labs | blueteamlabs.online | Análisis de logs |
-| CERT-MX | gob.mx/cert | Alertas para México |
+| CERT-MX | gob.mx/certmx | Alertas para México |
 | MITRE ATT&CK ICS | attack.mitre.org/matrices/ics | OT específico |
 
 </v-click>
@@ -617,6 +810,77 @@ layout: two-cols-header
 </v-clicks>
 
 ---
+
+# Recursos gratuitos para continuar
+
+| Herramienta | Para qué | URL |
+|-------------|----------|-----|
+| <carbon-catalog class="text-red-600" /> **TryHackMe** | Ruta SOC Level 1 | `tryhackme.com` |
+| <carbon-security class="text-blue-600" /> **Blue Team Labs** | Análisis de logs y forense | `blueteamlabs.online` |
+| <carbon-document class="text-teal-600" /> **CERT-MX** | Alertas y reportes México | `gob.mx/certmx` |
+| <carbon-catalog class="text-red-600" /> **MITRE ATT&CK ICS** | Tácticas OT específicas | `attack.mitre.org/matrices/ics` |
+| <carbon-checkmark-filled class="text-green-600" /> **No More Ransom** | Desencriptadores gratuitos | `nomoreransom.org` |
+| <carbon-security class="text-green-600" /> **NIST SP 800-61** | Guía oficial de respuesta a incidentes | `csrc.nist.gov` |
+
+<div class="mt-4 p-3 rounded text-sm tip-teal">
+  <carbon-information class="text-teal-700" /> En caso de incidente activo: reportar a <strong>CERT-MX</strong> (gob.mx/certmx) y consultar <strong>nomoreransom.org</strong> antes de tomar cualquier otra decisión.
+</div>
+
+---
+
+# 🃏 Tu tarjeta de bolsillo — Día 4
+
+<div class="border-2 border-[#40C6BD] rounded-xl p-4 mt-2 bg-[#f0fafa]">
+<div class="text-center text-xs text-[#00534C] font-bold mb-3 pb-2 border-b border-[#B1DFDC]">✂️ Recorta y pega en tu escritorio</div>
+
+<div class="grid grid-cols-3 gap-3 text-xs">
+
+<div>
+<div class="font-bold text-[#00534C] mb-1">🚨 Primeros 30 min (ransomware):</div>
+<ol class="text-gray-700 space-y-0.5 list-decimal pl-4">
+  <li>Aislar equipo de la red (NO apagar)</li>
+  <li>Bloquear cuenta comprometida en AD</li>
+  <li>Desconectar backups de la red</li>
+  <li>Evaluar si el MES/OT está afectado</li>
+  <li>Activar el IRP y notificar al equipo</li>
+</ol>
+</div>
+
+<div>
+<div class="font-bold text-[#00534C] mb-1">💾 ¿Se paga el rescate?</div>
+<ol class="text-gray-700 space-y-0.5 list-decimal pl-4">
+  <li>¿Backups limpios disponibles? → NO pagar</li>
+  <li>¿Decryptors en nomoreransom.org? → Usarlos</li>
+  <li>Pagar NO garantiza recuperación</li>
+  <li>Reportar a CERT-MX siempre</li>
+  <li>Decisión ejecutiva + asesoría legal</li>
+</ol>
+</div>
+
+<div>
+<div class="font-bold text-[#00534C] mb-1">📋 Métricas clave de IR:</div>
+<ul class="text-gray-700 space-y-0.5 list-disc pl-4">
+  <li>MTTD: detección &lt; 24 horas</li>
+  <li>MTTR: respuesta &lt; 4 horas</li>
+  <li>RTO producción: &lt; 4 horas</li>
+  <li>RTO ERP: &lt; 8 horas</li>
+  <li>Logs mínimo 90 días</li>
+</ul>
+</div>
+
+</div>
+
+<div class="mt-3 pt-2 border-t border-[#B1DFDC] text-center text-xs text-gray-500">
+  Ciberseguridad Manufacturera · INDEX Ciudad Juárez · Día 4 · <strong>IT Security:</strong> ________________
+</div>
+
+</div>
+
+<!--
+Imprimir una por participante antes de la sesión o pedir que tomen foto con el celular.
+-->
+
+---
 layout: end
 ---
 
@@ -636,6 +900,23 @@ La seguridad de tu planta depende de las decisiones que tomes **esta semana**.
   INDEX Ciudad Juárez · ciberseguridad@index.org.mx
 </div>
 
+---
+
+<div class="flex flex-col items-center gap-3 mt-2">
+  <p class="text-[#00534C] font-semibold text-base">Evalúa el curso completo</p>
+  <QRCode
+    :width="180"
+    :height="180"
+    type="svg"
+    data="https://forms.office.com/r/y2bGJbjiw4"
+    :margin="8"
+  />
+  <div class="text-center text-sm text-gray-600 leading-relaxed">
+    Escanea el QR y en el campo <strong class="text-[#00534C]">Código Opina</strong> escribe:<br/>
+    <span class="text-2xl font-bold text-[#00879B] tracking-widest">SCAEM006091</span>
+  </div>
+</div>
+
 <!--
-Agradecer la participación. Recordar que el primer control que deben implementar es el que más daño hubiera evitado en los casos que vieron esta semana.
+Pedir a todos que evalúen antes de salir. En "Código Opina" escribir: SCAEM006091
 -->

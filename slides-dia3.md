@@ -11,18 +11,32 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
-colorSchema: dark
-background: /images/cover-dia3.jpg
+colorSchema: light
+layout: cover
+background: /images/juarez-skyline.jpg
+addons:
+  - slidev-addon-qrcode
+  - slidev-component-poll
+  - slidev-addon-rabbit
+  - window-mockup
+  - slidev-addon-rough-mermaid
+rabbit:
+  slideNum: true
+defaults:
+  layout: default
 ---
 
-# Ciberseguridad para la Industria Manufacturera
+<img src="/images/tecmilenio-logo.png" class="absolute top-6 left-8 h-10 z-10" />
 
-## Día 3 — Seguridad de Datos, Nube y Redes Industriales
-
-**INDEX Ciudad Juárez · 26 de marzo de 2026**
-
-<div class="pt-6 text-gray-400">
-  4 horas · Sesión 3 de 4
+<div class="absolute right-0 top-0 bottom-0 w-[42%] bg-[#00879B]/92 flex flex-col justify-center pl-8 pr-6 z-10 overflow-hidden">
+  <h1 class="text-white text-2xl font-light leading-tight mb-3 pb-3" style="border-bottom: 2px solid #40C6BD; border-color: #40C6BD !important;">
+    Ciberseguridad<br/>para la Industria<br/>Manufacturera
+  </h1>
+  <h2 class="text-[#B1DFDC] text-base font-light mb-5">
+    Día 3 — Datos, Nube y Redes Industriales
+  </h2>
+  <p class="text-white/90 text-sm font-semibold">INDEX Ciudad Juárez</p>
+  <p class="text-white/60 text-xs mt-1">26 de marzo de 2026 · Sesión 3 de 4</p>
 </div>
 
 ---
@@ -35,6 +49,18 @@ layout: quote
 
 <!--
 Hoy exploramos qué datos tienen las plantas, dónde están, y cómo protegerlos tanto en la nube como en las redes industriales.
+-->
+
+---
+layout: center
+---
+
+# Antes de empezar...
+
+<Poll question="En tu planta, ¿saben qué archivos están compartidos con acceso público en la nube?" :answers="['Sí, tenemos auditoría actualizada', 'Creemos que sí, pero no estamos seguros', 'No lo sabemos', 'No usamos nube corporativa']" />
+
+<!--
+Dejar 60 segundos para que voten. Esta pregunta revela el nivel real de visibilidad sobre datos en la nube.
 -->
 
 ---
@@ -67,6 +93,57 @@ layout: two-cols
 | 🔬 Lab 5 | OWASP Juice Shop |
 | 🎭 Lab 6 | Auditoría de nube |
 | 🏗️ Ejercicio | Arquitectura IT/OT segmentada |
+
+---
+layout: center
+---
+
+# ¿Cómo está tu planta hoy?
+
+<div class="grid grid-cols-3 gap-4 mt-4 text-center text-sm">
+
+<div class="border-2 border-red-300 rounded-xl p-4 bg-red-50">
+  <div class="text-3xl mb-2">🌡️</div>
+  <div class="text-red-700 font-bold text-base mb-2">Riesgo Alto</div>
+  <div class="text-red-600 text-xs space-y-1">
+    <div>Datos en OneDrive sin auditar</div>
+    <div>Sin firewall entre IT y OT</div>
+    <div>PLCs accesibles desde red de oficinas</div>
+    <div>Sin inventario de activos OT</div>
+  </div>
+</div>
+
+<div class="border-2 border-amber-300 rounded-xl p-4 bg-amber-50">
+  <div class="text-3xl mb-2">⚠️</div>
+  <div class="text-amber-700 font-bold text-base mb-2">Riesgo Medio</div>
+  <div class="text-amber-600 text-xs space-y-1">
+    <div>M365 con revisión ocasional</div>
+    <div>Segmentación parcial IT/OT</div>
+    <div>Inventario incompleto de activos</div>
+    <div>Sin DLP activo</div>
+  </div>
+</div>
+
+<div class="border-2 border-green-300 rounded-xl p-4 bg-green-50">
+  <div class="text-3xl mb-2">✅</div>
+  <div class="text-green-700 font-bold text-base mb-2">Riesgo Bajo</div>
+  <div class="text-green-600 text-xs space-y-1">
+    <div>Microsoft Secure Score &gt; 70%</div>
+    <div>Firewall industrial IT/OT activo</div>
+    <div>Inventario 100% de activos OT</div>
+    <div>DLP en M365 configurado</div>
+  </div>
+</div>
+
+</div>
+
+<div class="tip-teal text-sm mt-4 text-center">
+  <carbon-information class="text-teal-700" /> Al final del día, este termómetro debería verse diferente. Guarda mentalmente en qué columna está tu planta <strong>hoy</strong>.
+</div>
+
+<!--
+Pedir que levanten la mano: ¿quién está en rojo? ¿amarillo? ¿verde?
+-->
 
 ---
 layout: section
@@ -262,6 +339,50 @@ DEI = Archivos/carpetas críticas con
 **Meta:** **0** archivos críticos públicos
 
 ---
+
+# ✅ Cierre — Bloque 1
+
+<div class="grid grid-cols-3 gap-5 mt-4">
+
+<div class="tip-teal p-4 rounded-xl text-center">
+  <div class="text-2xl mb-2">🔌</div>
+  <div class="text-[#00534C] font-bold mb-1">Convergencia IT/OT</div>
+  <div class="text-xs text-gray-600">La red plana entre oficinas y producción es el vector más crítico. Un phishing en una laptop puede llegar al PLC.</div>
+</div>
+
+<div class="tip-warn p-4 rounded-xl text-center">
+  <div class="text-2xl mb-2">☁️</div>
+  <div class="text-[#7C3912] font-bold mb-1">M365 mal configurado</div>
+  <div class="text-xs text-gray-600">47 carpetas con enlace público es la norma. El reenvío automático a Gmail pasa desapercibido durante meses.</div>
+</div>
+
+<div class="tip-danger p-4 rounded-xl text-center">
+  <div class="text-2xl mb-2">📡</div>
+  <div class="text-red-700 font-bold mb-1">Protocolos OT sin defensa</div>
+  <div class="text-xs text-gray-600">Modbus, PROFINET y EtherNet/IP fueron diseñados para redes aisladas. En redes abiertas son completamente vulnerables.</div>
+</div>
+
+</div>
+
+<v-click>
+
+<div class="mt-4 p-3 bg-[#00534C] text-white rounded-xl text-sm text-center">
+  <strong>Pregunta para llevar al lab:</strong> ¿Cómo entran los atacantes a los sistemas web de tu planta y qué datos pueden robar?
+</div>
+
+</v-click>
+
+---
+layout: center
+---
+
+<Poll question="Antes del lab: ¿qué tan familiarizado estás con vulnerabilidades web como SQL Injection o XSS?" :answers="['Las conozco y sé cómo prevenirlas', 'He escuchado los términos pero no los domino', 'Son conceptos nuevos para mí', 'No manejo sistemas web en mi área']" />
+
+<!--
+Guardar estos resultados. Al final del lab verificar si cambió la percepción.
+-->
+
+---
 layout: section
 ---
 
@@ -405,7 +526,38 @@ background: /images/cloud-security.jpg
 </v-click>
 
 ---
+layout: center
+---
+
+# ⏸️ Pausa de 5 minutos — Reflexión activa
+
+<div class="grid grid-cols-2 gap-6 mt-4 max-w-2xl mx-auto">
+
+<div class="tip-teal p-5 rounded-xl text-center">
+  <div class="text-3xl mb-3">✍️</div>
+  <div class="text-[#00534C] font-bold mb-2">Escribe una cosa</div>
+  <div class="text-sm text-gray-600">¿Qué cambiarías en tu planta <strong>esta semana</strong> con lo que viste en los labs de hoy?</div>
+</div>
+
+<div class="tip-warn p-5 rounded-xl text-center">
+  <div class="text-3xl mb-3">💬</div>
+  <div class="text-[#7C3912] font-bold mb-2">Comparte con un compañero</div>
+  <div class="text-sm text-gray-600">60 segundos cada uno. Sin filtros — cualquier idea cuenta, por pequeña que sea.</div>
+</div>
+
+</div>
+
+<div class="mt-5 text-center text-sm text-gray-500">
+  <carbon-time class="text-gray-500" /> Regresamos en <strong>5 minutos</strong> para el ejercicio final
+</div>
+
+<!--
+Usar este tiempo genuinamente. No avanzar el material.
+-->
+
+---
 layout: section
+background: /images/tecmilenio-teamwork.jpeg
 ---
 
 # Ejercicio Práctico
@@ -470,6 +622,47 @@ Por la **red plana** (sin segmentación), llegó al servidor del MES y cifró ó
 | Proveedor → Red interna | — | ❌ No | DMZ aislada |
 
 ---
+
+# 🖼️ Gallery Walk — Comparte tu arquitectura
+
+<div class="grid grid-cols-2 gap-6 mt-3">
+
+<div>
+
+**Instrucciones (15 minutos):**
+
+<v-clicks>
+
+1. 📌 **Pega** el diagrama de tu arquitectura en la pared (o compártelo en pantalla)
+2. 👀 **Visita** las arquitecturas de los demás equipos — 2 min por equipo
+3. ✅ **Agrega un post-it verde** con una zona de seguridad que agregarías
+4. ❓ **Agrega un post-it amarillo** con una duda o mejora sugerida
+5. 🎤 **Cada equipo** defiende su diseño en 2 minutos
+
+</v-clicks>
+
+</div>
+
+<div class="flex flex-col gap-3">
+
+<div class="tip-teal text-sm">
+  <carbon-checkmark class="text-teal-700" /> <strong>Meta:</strong> Que cada planta salga con un borrador real de segmentación IT/OT
+</div>
+
+<div class="tip-warn text-sm">
+  <carbon-warning-alt-filled class="text-orange-600" /> <strong>Criterio de éxito:</strong> El ransomware del incidente queda contenido en la zona de usuarios — ¿cómo lo garantiza tu diseño?
+</div>
+
+<div class="border border-[#B1DFDC] rounded-lg p-3 text-xs bg-[#f0fafa]">
+  <div class="font-bold text-[#00534C] mb-1">Rúbrica rápida</div>
+  <div class="text-gray-600">✅ Define al menos 4 zonas separadas<br/>✅ Especifica tráfico permitido entre zonas<br/>✅ Protege la red OT del acceso directo desde IT<br/>✅ Incluye DMZ para accesos externos</div>
+</div>
+
+</div>
+
+</div>
+
+---
 layout: two-cols-header
 ---
 
@@ -500,6 +693,77 @@ layout: two-cols-header
 4. 🔥 Evaluar si existe firewall entre red de oficinas y red de producción
 
 </v-clicks>
+
+---
+
+# Recursos gratuitos para implementar esta semana
+
+| Herramienta | Para qué | URL |
+|-------------|----------|-----|
+| <carbon-security class="text-green-600" /> **Microsoft Secure Score** | Auditoría gratuita de M365 | `portal.microsoft.com` |
+| <carbon-search class="text-blue-600" /> **Nmap** | Inventario de activos IT y OT | `nmap.org` |
+| <carbon-checkmark-filled class="text-teal-600" /> **OWASP Juice Shop** | Práctica de vulnerabilidades web | `owasp.org/www-project-juice-shop` |
+| <carbon-catalog class="text-red-600" /> **MITRE ATT&CK for ICS** | Tácticas específicas para OT | `attack.mitre.org/matrices/ics` |
+| <carbon-document class="text-teal-600" /> **NIST SP 800-82** | Guía de seguridad ICS/SCADA | `csrc.nist.gov` |
+| <carbon-security class="text-blue-600" /> **CERT-MX** | Alertas de ciberseguridad para México | `gob.mx/certmx` |
+
+<div class="mt-4 p-3 rounded text-sm tip-teal">
+  <carbon-information class="text-teal-700" /> Empieza hoy mismo con Microsoft Secure Score — accede desde <strong>portal.microsoft.com</strong> sin instalar nada.
+</div>
+
+---
+
+# 🃏 Tu tarjeta de bolsillo — Día 3
+
+<div class="border-2 border-[#40C6BD] rounded-xl p-4 mt-2 bg-[#f0fafa]">
+<div class="text-center text-xs text-[#00534C] font-bold mb-3 pb-2 border-b border-[#B1DFDC]">✂️ Recorta y pega en tu escritorio</div>
+
+<div class="grid grid-cols-3 gap-3 text-xs">
+
+<div>
+<div class="font-bold text-[#00534C] mb-1">☁️ Auditoría urgente M365:</div>
+<ol class="text-gray-700 space-y-0.5 list-decimal pl-4">
+  <li>Revisar carpetas con enlace público</li>
+  <li>Deshabilitar reenvío automático externo</li>
+  <li>Eliminar cuentas invitado inactivas &gt; 90d</li>
+  <li>Activar Conditional Access</li>
+  <li>Verificar Microsoft Secure Score</li>
+</ol>
+</div>
+
+<div>
+<div class="font-bold text-[#00534C] mb-1">🔌 Protección IT/OT básica:</div>
+<ol class="text-gray-700 space-y-0.5 list-decimal pl-4">
+  <li>Inventariar dispositivos OT con Nmap</li>
+  <li>¿Existe firewall entre red IT y OT?</li>
+  <li>Bloquear acceso directo de usuarios a PLC</li>
+  <li>Backup de configuraciones PLC/SCADA</li>
+  <li>Coordinar parches OT con mantenimiento</li>
+</ol>
+</div>
+
+<div>
+<div class="font-bold text-[#00534C] mb-1">🚨 Si detectas fuga de datos:</div>
+<ul class="text-gray-700 space-y-0.5 list-disc pl-4">
+  <li>Revocar acceso del usuario inmediatamente</li>
+  <li>NO borrar evidencia de logs</li>
+  <li>Identificar qué archivos fueron accedidos</li>
+  <li>Datos personales: notificar INAI en 72h</li>
+  <li>Reportar a IT Security y RRHH</li>
+</ul>
+</div>
+
+</div>
+
+<div class="mt-3 pt-2 border-t border-[#B1DFDC] text-center text-xs text-gray-500">
+  Ciberseguridad Manufacturera · INDEX Ciudad Juárez · Día 3 · <strong>IT Security:</strong> ________________
+</div>
+
+</div>
+
+<!--
+Imprimir una por participante antes de la sesión o pedir que tomen foto con el celular.
+-->
 
 ---
 layout: end

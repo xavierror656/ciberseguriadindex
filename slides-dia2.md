@@ -759,24 +759,3 @@ layout: end
 Seguridad en Microsoft 365 · Redes OT/ICS · OWASP Juice Shop · Diseño de red IT/OT segmentada
 
 *8:00 AM · INDEX Ciudad Juárez*
-
----
-
-<div class="flex flex-col items-center gap-3 mt-2">
-  <p class="text-[#00534C] font-semibold text-base">Evalúa la sesión de hoy</p>
-  <QRCode
-    :width="180"
-    :height="180"
-    type="svg"
-    data="https://forms.office.com/r/y2bGJbjiw4"
-    :margin="8"
-  />
-  <div class="text-center text-sm text-gray-600 leading-relaxed">
-    Escanea el QR y en el campo <strong class="text-[#00534C]">Código Opina</strong> escribe:<br/>
-    <span class="text-2xl font-bold text-[#00879B] tracking-widest">SCAEM006091</span>
-  </div>
-</div>
-
-<!--
-Pedir a todos que evalúen antes de salir. En "Código Opina" escribir: SCAEM006091
--->
