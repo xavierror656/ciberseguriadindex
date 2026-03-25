@@ -8,7 +8,7 @@
 ## Objetivo del día
 
 Aprender a proteger el acceso a sistemas críticos de plantas manufactureras mediante gestión de identidades, autenticación multifactor y principios de Zero Trust aplicados al entorno industrial de Ciudad Juárez.
-
+  
 ---
 
 ## Bloque 1 — Control de accesos en entornos industriales
