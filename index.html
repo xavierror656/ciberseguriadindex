@@ -14,7 +14,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 2rem;
     }
     header {
@@ -33,12 +32,30 @@
       color: #00879B;
       font-size: 1rem;
     }
+
+    /* ── Section label ── */
+    .section-label {
+      width: 100%;
+      max-width: 900px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #00879B;
+      margin-bottom: 0.75rem;
+      padding-left: 2px;
+      border-left: 3px solid #40C6BD;
+      padding-left: 0.5rem;
+    }
+
+    /* ── Slides grid ── */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
       width: 100%;
       max-width: 900px;
+      margin-bottom: 2.5rem;
     }
     .card {
       background: #fff;
@@ -79,8 +96,25 @@
       color: #44546A;
       line-height: 1.5;
     }
+
+    .md-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Eval image ── */
+    .eval-section {
+      width: 100%;
+      max-width: 900px;
+      margin-bottom: 2rem;
+    }
+
     footer {
-      margin-top: 3rem;
+      margin-top: 1rem;
       font-size: 0.75rem;
       color: #A5A5A5;
       text-align: center;
@@ -93,6 +127,8 @@
     <p>Skilling Center Tecmilenio &mdash; INDEX Ciudad Juárez &mdash; Marzo 2026</p>
   </header>
 
+  <!-- ── Presentaciones ── -->
+  <div class="section-label">Presentaciones (Slidev)</div>
   <div class="grid">
     <a class="card" href="dia1/">
       <div class="day">Día 1 &mdash; 24 Mar</div>
@@ -115,10 +151,58 @@
       <p>NIST SP 800-61, árbol de decisión, higiene digital.</p>
     </a>
     <a class="card" href="bonus/" style="border-top-color:#ED7D31;">
-      <div class="day" style="color:#ED7D31;">Bonus &mdash; CISA Guide</div>
+      <div class="day" style="color:#ED7D31;">Bonus 1 &mdash; CISA Guide</div>
       <h2>Guía #StopRansomware</h2>
       <p>Vectores de acceso, checklist de respuesta y recursos CISA/FBI/MS-ISAC.</p>
     </a>
+    <a class="card" href="bonus-especialidades/" style="border-top-color:#ED7D31;">
+      <div class="day" style="color:#ED7D31;">Bonus 2 &mdash; Roles &amp; Especialidades</div>
+      <h2>Especialidades en Ciberseguridad</h2>
+      <p>Los 4 tipos, 11 roles profesionales y equipo ideal para tu maquiladora.</p>
+    </a>
+  </div>
+
+  <!-- ── Materiales Markdown ── -->
+  <div class="section-label">Materiales del curso (Markdown)</div>
+  <div class="md-grid">
+    <a class="card" href="dia1-amenazas-ia-ingenieria-social.md" target="_blank">
+      <div class="day">Día 1 &mdash; 24 Mar</div>
+      <h2>Amenazas con IA &amp; Ingeniería Social</h2>
+      <p>Deepfakes, CEO fraud, phishing generativo, MITRE ATT&CK.</p>
+    </a>
+    <a class="card" href="dia2-identidad-zero-trust.md" target="_blank">
+      <div class="day">Día 2 &mdash; 25 Mar</div>
+      <h2>Identidad &amp; Zero Trust</h2>
+      <p>MFA, PAM, Zero Trust, gestión de credenciales.</p>
+    </a>
+    <a class="card" href="dia3-datos-nube-redes-industriales.md" target="_blank">
+      <div class="day">Día 3 &mdash; 26 Mar</div>
+      <h2>Datos, Nube &amp; Redes Industriales</h2>
+      <p>OneDrive, BYOD, VPN, MDM, LFPDPPP.</p>
+    </a>
+    <a class="card" href="dia4-respuesta-incidentes-ransomware.md" target="_blank">
+      <div class="day">Día 4 &mdash; 27 Mar</div>
+      <h2>Respuesta a Incidentes &amp; Ransomware</h2>
+      <p>NIST SP 800-61, árbol de decisión, higiene digital.</p>
+    </a>
+    <a class="card" href="dia-bonus-guia-cisa-ransomware.md" target="_blank" style="border-top-color:#ED7D31;">
+      <div class="day" style="color:#ED7D31;">Bonus 1 &mdash; CISA Guide</div>
+      <h2>Guía #StopRansomware</h2>
+      <p>Vectores de acceso, checklist de respuesta y recursos CISA/FBI/MS-ISAC.</p>
+    </a>
+    <a class="card" href="dia-bonus-especialidades-ciberseguridad.md" target="_blank" style="border-top-color:#ED7D31;">
+      <div class="day" style="color:#ED7D31;">Bonus 2 &mdash; Roles &amp; Especialidades</div>
+      <h2>Especialidades en Ciberseguridad</h2>
+      <p>Los 4 tipos, 11 roles profesionales y equipo ideal para tu maquiladora.</p>
+    </a>
+  </div>
+
+  <!-- ── Evaluación ── -->
+  <div class="section-label">Evaluación del curso</div>
+  <div class="eval-section">
+    <img src="public/images/evaluacion-tecmilenio.png"
+         alt="Evaluación del curso — Skilling Center Tecmilenio · SCAEM006091"
+         style="width:100%;max-width:380px;display:block;margin:0 auto;border-radius:12px;box-shadow:0 4px 24px rgba(0,83,76,0.18);" />
   </div>
 
   <footer>
